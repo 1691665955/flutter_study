@@ -23,16 +23,31 @@ class MyApp extends StatelessWidget {
 }
 
 
-//新增列表数据
-class HomeContent extends StatefulWidget {
-  @override
-  _HomeContentState createState() => _HomeContentState();
-}
-
-class _HomeContentState extends State<HomeContent> {
+class HomeContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Text("Zz");
+    return AspectRatio(
+      aspectRatio: 5.0/2.0,
+      child: Container(
+        color: Colors.red,
+      ),
+    );
   }
 }
+
+
+//class HomeContent extends StatelessWidget {
+//  @override
+//  Widget build(BuildContext context) {
+//    return Container(
+//      width: 300,
+//      child: AspectRatio(
+//        aspectRatio: 2.0/1.0,
+//        child: Container(
+//          color: Colors.red,
+//        ),
+//      ),
+//    );
+//  }
+//}
 
