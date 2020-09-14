@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'routes/Routes.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() {
   runApp(MyApp());
@@ -8,31 +10,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-          appBar: AppBar(
-            title: Text(
-              "Flutter Demo",
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
-          body: HomeContent()),
+      initialRoute: '/',
+      onGenerateRoute: onGenerateRoute,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.cyan),
+      //国际化
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate
+      ],
+      supportedLocales: [
+        const Locale('zh', 'CH'),
+        const Locale('en', 'US')
+      ],
+      locale: Locale("zh"),
     );
   }
 }
-
-
-//新增列表数据
-class HomeContent extends StatefulWidget {
-  @override
-  _HomeContentState createState() => _HomeContentState();
-}
-
-class _HomeContentState extends State<HomeContent> {
-  @override
-  Widget build(BuildContext context) {
-    return Text("Zz");
-  }
-}
-
