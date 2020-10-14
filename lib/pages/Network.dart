@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:dio/dio.dart';
 
 class NetworkDemo extends StatefulWidget {
   @override
@@ -20,13 +21,36 @@ class _NetworkDemoState extends State<NetworkDemo> {
   }
 
   _postData() async {
-    var apiUrl = "";
-    var result = await http.post(apiUrl,body: {});
+    var apiUrl = "https://api.apiopen.top/getJoke";
+    Map jsonData = {
+      "page": "1",
+      "count": "10",
+      "type": "video"
+    };
+    var result = await http.post(apiUrl,body: jsonData);
     if (result.statusCode == 200) {
       print(json.decode(result.body));
     } else {
       print(result.statusCode);
     }
+  }
+
+  _dioGetData() async {
+    var apiUrl = "http://a.itying.com/api/productlist";
+    Response response = await Dio().get(apiUrl);
+    print(response.data is Map);
+    print(response.data['result'][0]);
+  }
+
+  _dioPostData() async {
+    var apiUrl = "https://api.apiopen.top/getJoke";
+    Map jsonData = {
+      "page": 1,
+      "count": 10,
+      "type": "video"
+    };
+    Response response = await Dio().post(apiUrl,data: jsonData);
+    print(response.data['result'][0]);
   }
 
   @override
@@ -81,6 +105,30 @@ class _NetworkDemoState extends State<NetworkDemo> {
               ),
               color: Theme.of(context).accentColor,
               onPressed: _postData,
+            ),
+          ),
+          Center(
+            child: RaisedButton(
+              child: Text(
+                "dio get请求",
+                style: TextStyle(
+                    color: Colors.white
+                ),
+              ),
+              color: Theme.of(context).accentColor,
+              onPressed: _dioGetData,
+            ),
+          ),
+          Center(
+            child: RaisedButton(
+              child: Text(
+                "dio post请求",
+                style: TextStyle(
+                    color: Colors.white
+                ),
+              ),
+              color: Theme.of(context).accentColor,
+              onPressed: _dioPostData,
             ),
           )
         ],

@@ -12,14 +12,14 @@ class MyDialog extends Dialog {
   _showTimer(context) {
     var timer;
     timer = Timer.periodic(Duration(milliseconds: 3000), (t) {
-      Navigator.pop(context);//关闭Dialog
       t.cancel();//取消定时器
+      Navigator.pop(context);//关闭Dialog
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    _showTimer(context);
+//    _showTimer(context);
     // TODO: implement build
     return Material(
       type: MaterialType.transparency,

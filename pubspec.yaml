@@ -35,6 +35,7 @@ dependencies:
   flutter_swiper: ^1.1.6
   fluttertoast: ^7.1.1
   http: ^0.12.2
+  dio: ^3.0.10
 
 dev_dependencies:
   flutter_test:

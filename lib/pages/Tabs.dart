@@ -25,6 +25,14 @@ class _TabsState extends State<Tabs> {
           "Flutter Demo",
           style: TextStyle(color: Colors.white),
         ),
+//        leading: Builder(builder: (BuildContext context) {
+//          return IconButton(
+//            icon: Icon(Icons.face, size: 28,),
+//            onPressed: () {
+//              Scaffold.of(context).openDrawer();
+//            },
+//          );
+//        }),
       ),
       floatingActionButton: Container(
         margin: EdgeInsets.only(top: 10),

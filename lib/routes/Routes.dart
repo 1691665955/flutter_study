@@ -41,17 +41,17 @@ final routes = {
 var onGenerateRoute = (RouteSettings settings) {
 //统一处理
   final String name = settings.name;
-  final Function pageCotnentBuilder = routes[name];
-  if (pageCotnentBuilder != null) {
+  final Function pageContentBuilder = routes[name];
+  if (pageContentBuilder != null) {
     if (settings.arguments != null) {
       final Route route = MaterialPageRoute(
           settings: RouteSettings(name: name),
-          builder: (context) => pageCotnentBuilder(context, arguments: settings.arguments));
+          builder: (context) => pageContentBuilder(context, arguments: settings.arguments));
       return route;
     } else {
       final Route route = MaterialPageRoute(
           settings: RouteSettings(name: name),
-          builder: (context) => pageCotnentBuilder(context));
+          builder: (context) => pageContentBuilder(context));
       return route;
     }
   }
