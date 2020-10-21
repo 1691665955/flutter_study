@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'tabs/Home.dart';
-import 'tabs/Category.dart';
-import 'tabs/Setting.dart';
-import 'tabs/Person.dart';
+import 'Home.dart';
+import 'Category.dart';
+import 'Setting.dart';
+import 'Person.dart';
 
 class Tabs extends StatefulWidget {
   @override
@@ -54,9 +54,9 @@ class _TabsState extends State<Tabs> {
       body: this._pageLsit[this._tabbarIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text("首页")),
+          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text("widget")),
           BottomNavigationBarItem(
-              icon: Icon(Icons.category), title: Text("分类")),
+              icon: Icon(Icons.category), title: Text("Navtive")),
           BottomNavigationBarItem(
               icon: Icon(Icons.category), title: Text("添加")),
           BottomNavigationBarItem(

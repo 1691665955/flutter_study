@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 
 class FromPage extends StatelessWidget {
-  String title;
-
-  FromPage({this.title = '表单页面'});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +20,7 @@ class FromPage extends StatelessWidget {
             color: Colors.white
         ),
         title: Text(
-          this.title,
+          "表单页面'",
           style: TextStyle(
             color: Colors.white
         ),

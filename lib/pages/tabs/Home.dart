@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../Search.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -7,148 +6,50 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  List _dataList = [
+    {"name":"Text文本组件","router":"/text"},
+    {"name":"Image图片组件","router":"/image"},
+    {"name":"ListView列表组件","router":"/listView"},
+    {"name":"GridView列表组件","router":"/gridView"},
+    {"name":"Padding布局组件","router":"/padding"},
+    {"name":"Row布局组件","router":"/row"},
+    {"name":"Column布局组件","router":"/column"},
+    {"name":"Expand布局组件","router":"/expand"},
+    {"name":"Stack层叠组件","router":"/stack"},
+    {"name":"AspectRatio长宽比组件","router":"/aspectRatio"},
+    {"name":"Card组件","router":"/card"},
+    {"name":"Wrap组件","router":"/wrap"}
+  ];
+
+  Widget _getListWidget(context, index) {
+    return Column(
+      children: [
+        ListTile(
+          title: Text(
+              _dataList[index]["name"]
+          ),
+          trailing: Icon(
+              Icons.keyboard_arrow_right
+          ),
+          onTap: () {
+            Navigator.pushNamed(context, _dataList[index]["router"]);
+          },
+        ),
+        Divider(
+          height: 1,
+        )
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          RaisedButton(
-            child: Text(
-              "跳转到搜索页面",
-              style: TextStyle(
-                color: Colors.white
-              ),
-            ),
-            color: Theme.of(context).accentColor,
-            textTheme: ButtonTextTheme.primary,
-            onPressed: () {
-//              Navigator.of(context).push(
-//                  MaterialPageRoute(
-//                      builder: (context) => SearchPage()
-//                  )
-//              );
-            
-              //路由跳转
-              Navigator.pushNamed(context, "/search", arguments: {
-                "id": 123
-              });
-            },
-          ),
-          RaisedButton(
-            child: Text(
-              "跳转到按钮页面",
-              style: TextStyle(
-                  color: Colors.white
-              ),
-            ),
-            color: Theme.of(context).accentColor,
-            textTheme: ButtonTextTheme.primary,
-            onPressed: () {
-              //路由跳转
-              Navigator.pushNamed(context, "/button");
-            },
-          ),
-          RaisedButton(
-            child: Text(
-              "跳转到TextField页面",
-              style: TextStyle(
-                  color: Colors.white
-              ),
-            ),
-            color: Theme.of(context).accentColor,
-            textTheme: ButtonTextTheme.primary,
-            onPressed: () {
-              //路由跳转
-              Navigator.pushNamed(context, "/textField");
-            },
-          ),
-          RaisedButton(
-            child: Text(
-              "跳转到Checkbox页面",
-              style: TextStyle(
-                  color: Colors.white
-              ),
-            ),
-            color: Theme.of(context).accentColor,
-            textTheme: ButtonTextTheme.primary,
-            onPressed: () {
-              //路由跳转
-              Navigator.pushNamed(context, "/checkbox");
-            },
-          ),
-          RaisedButton(
-            child: Text(
-              "跳转到Radio页面",
-              style: TextStyle(
-                  color: Colors.white
-              ),
-            ),
-            color: Theme.of(context).accentColor,
-            textTheme: ButtonTextTheme.primary,
-            onPressed: () {
-              //路由跳转
-              Navigator.pushNamed(context, "/radio");
-            },
-          ),
-          RaisedButton(
-            child: Text(
-              "跳转到DatePicker页面",
-              style: TextStyle(
-                  color: Colors.white
-              ),
-            ),
-            color: Theme.of(context).accentColor,
-            textTheme: ButtonTextTheme.primary,
-            onPressed: () {
-              //路由跳转
-              Navigator.pushNamed(context, "/datePicker");
-            },
-          ),
-          RaisedButton(
-            child: Text(
-              "跳转到Swiper页面",
-              style: TextStyle(
-                  color: Colors.white
-              ),
-            ),
-            color: Theme.of(context).accentColor,
-            textTheme: ButtonTextTheme.primary,
-            onPressed: () {
-              //路由跳转
-              Navigator.pushNamed(context, "/swiper");
-            },
-          ),
-          RaisedButton(
-            child: Text(
-              "跳转到Dialog页面",
-              style: TextStyle(
-                  color: Colors.white
-              ),
-            ),
-            color: Theme.of(context).accentColor,
-            textTheme: ButtonTextTheme.primary,
-            onPressed: () {
-              //路由跳转
-              Navigator.pushNamed(context, "/dialog");
-            },
-          ),
-          RaisedButton(
-            child: Text(
-              "网络请求页面",
-              style: TextStyle(
-                  color: Colors.white
-              ),
-            ),
-            color: Theme.of(context).accentColor,
-            textTheme: ButtonTextTheme.primary,
-            onPressed: () {
-              //路由跳转
-              Navigator.pushNamed(context, "/network");
-            },
-          )
-        ],
-      ),
+
+    return ListView.builder(
+        itemCount: _dataList.length,
+        itemBuilder: _getListWidget
     );
+
   }
 }
