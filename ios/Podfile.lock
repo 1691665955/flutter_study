@@ -1,16 +1,27 @@
 PODS:
-  - amap_location (0.0.1):
-    - AMapLocation
+  - amap_core_fluttify (0.0.1):
+    - AMapFoundation-NO-IDFA (= 1.6.4)
     - Flutter
-  - AMapFoundation (1.6.4)
-  - AMapLocation (2.6.7):
-    - AMapFoundation (~> 1.6.4)
+    - foundation_fluttify
+  - amap_location_fluttify (0.0.1):
+    - amap_core_fluttify
+    - AMapLocation-NO-IDFA (= 2.6.5)
+    - Flutter
+    - foundation_fluttify
+  - AMapFoundation-NO-IDFA (1.6.4)
+  - AMapLocation-NO-IDFA (2.6.5):
+    - AMapFoundation-NO-IDFA (~> 1.6.3)
+  - core_location_fluttify (0.0.1):
+    - Flutter
+    - foundation_fluttify
   - device_info (0.0.1):
     - Flutter
   - Flutter (1.0.0)
   - fluttertoast (0.0.2):
     - Flutter
     - Toast
+  - foundation_fluttify (0.0.1):
+    - Flutter
   - simple_permissions (0.0.1):
     - Flutter
   - Toast (4.0.0)
@@ -18,40 +29,52 @@ PODS:
     - Flutter
 
 DEPENDENCIES:
-  - amap_location (from `.symlinks/plugins/amap_location/ios`)
+  - amap_core_fluttify (from `.symlinks/plugins/amap_core_fluttify/ios`)
+  - amap_location_fluttify (from `.symlinks/plugins/amap_location_fluttify/ios`)
+  - core_location_fluttify (from `.symlinks/plugins/core_location_fluttify/ios`)
   - device_info (from `.symlinks/plugins/device_info/ios`)
   - Flutter (from `Flutter`)
   - fluttertoast (from `.symlinks/plugins/fluttertoast/ios`)
+  - foundation_fluttify (from `.symlinks/plugins/foundation_fluttify/ios`)
   - simple_permissions (from `.symlinks/plugins/simple_permissions/ios`)
   - webview_flutter (from `.symlinks/plugins/webview_flutter/ios`)
 
 SPEC REPOS:
   trunk:
-    - AMapFoundation
-    - AMapLocation
+    - AMapFoundation-NO-IDFA
+    - AMapLocation-NO-IDFA
     - Toast
 
 EXTERNAL SOURCES:
-  amap_location:
-    :path: ".symlinks/plugins/amap_location/ios"
+  amap_core_fluttify:
+    :path: ".symlinks/plugins/amap_core_fluttify/ios"
+  amap_location_fluttify:
+    :path: ".symlinks/plugins/amap_location_fluttify/ios"
+  core_location_fluttify:
+    :path: ".symlinks/plugins/core_location_fluttify/ios"
   device_info:
     :path: ".symlinks/plugins/device_info/ios"
   Flutter:
     :path: Flutter
   fluttertoast:
     :path: ".symlinks/plugins/fluttertoast/ios"
+  foundation_fluttify:
+    :path: ".symlinks/plugins/foundation_fluttify/ios"
   simple_permissions:
     :path: ".symlinks/plugins/simple_permissions/ios"
   webview_flutter:
     :path: ".symlinks/plugins/webview_flutter/ios"
 
 SPEC CHECKSUMS:
-  amap_location: a3e2a140bb25950d4e97560ce1b00e53a121e4f4
-  AMapFoundation: 3638198dfa40be54648570c3520edefad288286b
-  AMapLocation: a46c30d9930d0f3a3bd21139d8f845d10ac3f01d
+  amap_core_fluttify: 9e5af179f8151193fa1c9a420bcbcbf2701f648c
+  amap_location_fluttify: 2a650454a13ee2e4c65d8f34795e715f2068f569
+  AMapFoundation-NO-IDFA: 68a24362b110b8e0a3677605d0fd36bdf521f2bb
+  AMapLocation-NO-IDFA: 681a55b09638a0a5838c7c260f8825a1dbc7d98d
+  core_location_fluttify: 9466a411ea7d22c6349c7e6a767ae4623f01eb1d
   device_info: d7d233b645a32c40dfdc212de5cf646ca482f175
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
   fluttertoast: 6122fa75143e992b1d3470f61000f591a798cc58
+  foundation_fluttify: 0c45145e3fad1fb99188e4979daed5b24cd9b278
   simple_permissions: 149cd87a11f83c24bf99f6e8a82f9fc8b70be233
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   webview_flutter: d2b4d6c66968ad042ad94cbb791f5b72b4678a96

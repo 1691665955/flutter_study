@@ -39,7 +39,7 @@ dependencies:
   flutter_easyrefresh: ^2.1.6
   webview_flutter: ^1.0.5
   device_info: ^0.4.2+9
-  amap_location: ^0.2.0
+  amap_location_fluttify: ^0.19.1
   simple_permissions: ^0.1.9
 
 dev_dependencies:

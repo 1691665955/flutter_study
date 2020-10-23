@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:amap_location/amap_location.dart';
+import 'package:amap_location_fluttify/amap_location_fluttify.dart';
 import 'package:simple_permissions/simple_permissions.dart';
 import 'dart:io';
 
@@ -12,6 +12,7 @@ class _LocationPageState extends State<LocationPage> {
 
   var _longitude;
   var _latitude;
+  var _address;
 
   @override
   void initState() {
@@ -21,27 +22,24 @@ class _LocationPageState extends State<LocationPage> {
   }
 
   void _getLocation() async {
-    //启动一下
-    await AMapLocationClient.startup(new AMapLocationOption( desiredAccuracy:CLLocationAccuracy.kCLLocationAccuracyBest));
-
     //获取地理位置
-//    var result = await AMapLocationClient.getLocation(true);
+//    var result = await AmapLocation.instance.fetchLocation(mode: LocationAccuracy.High);
+//    print(result);
 //    setState(() {
-//      _longitude = result.longitude;
-//      _latitude = result.latitude;
+//      this._longitude = result.latLng.longitude;
+//      this._latitude = result.latLng.latitude;
+//      this._address = result.address;
 //    });
 
     //监听定位
-    AMapLocationClient.onLocationUpate.listen((event) {
-      print(event.district);
-      if (mounted) {
-        setState(() {
-          _longitude = event.longitude;
-          _latitude = event.latitude;
-        });
-      }
+    AmapLocation.instance.listenLocation().listen((result) {
+      print(result);
+      setState(() {
+        this._longitude = result.latLng.longitude;
+        this._latitude = result.latLng.latitude;
+        this._address = result.address;
+      });
     });
-    AMapLocationClient.startLocation();
   }
   
   void checkPermission() async {
@@ -59,8 +57,7 @@ class _LocationPageState extends State<LocationPage> {
   @override
   void dispose() {
     // TODO: implement dispose
-    AMapLocationClient.stopLocation();
-    AMapLocationClient.shutdown();
+    AmapLocation.instance.stopLocation();
     super.dispose();
   }
 
@@ -75,7 +72,7 @@ class _LocationPageState extends State<LocationPage> {
         ),
       ),
       body: Text(
-          "经度：${this._longitude==null?"":this._longitude}\n纬度：${this._latitude==null?"":this._latitude}"
+          "经度：${this._longitude==null?"":this._longitude}\n纬度：${this._latitude==null?"":this._latitude}\n地址：${this._address==null?"":this._address}"
       ),
     );
   }
