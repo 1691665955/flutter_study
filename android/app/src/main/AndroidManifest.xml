@@ -44,4 +44,7 @@
             android:name="flutterEmbedding"
             android:value="2" />
     </application>
+
+    //允许访问精确位置 GPS
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 </manifest>

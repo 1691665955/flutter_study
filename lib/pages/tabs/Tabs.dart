@@ -56,11 +56,11 @@ class _TabsState extends State<Tabs> {
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), title: Text("widget")),
           BottomNavigationBarItem(
+              icon: Icon(Icons.category), title: Text("Complext")),
+          BottomNavigationBarItem(
               icon: Icon(Icons.category), title: Text("Navtive")),
           BottomNavigationBarItem(
-              icon: Icon(Icons.category), title: Text("添加")),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.settings), title: Text("设置")),
+              icon: Icon(Icons.settings), title: Text("Navtive")),
           BottomNavigationBarItem(icon: Icon(Icons.person), title: Text("我的"))
         ],
         iconSize: 25.0,//icon大小

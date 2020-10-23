@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../category/Form.dart';
 
 class CategoryPage extends StatefulWidget {
   @override
@@ -21,7 +20,9 @@ class _CategoryPageState extends State<CategoryPage> {
     {"name":"DatePicker组件","router":"/datePicker"},
     {"name":"Swiper组件","router":"/swiper"},
     {"name":"Dialog组件","router":"/dialog"},
-    {"name":"Network网络请求","router":"/network"}
+    {"name":"Network网络请求","router":"/network"},
+    {"name":"上拉加载下拉刷新","router":"/refresh"},
+    {"name":"EasyRefresh上拉加载下拉刷新","router":"/easyRefresh"}
   ];
 
   Widget _getListWidget(context, index) {

@@ -6,14 +6,17 @@ import 'package:flutterstudy/pages/category/Button.dart';
 import 'package:flutterstudy/pages/category/CheckBox.dart';
 import 'package:flutterstudy/pages/category/DatePicker.dart';
 import 'package:flutterstudy/pages/category/Dialog.dart';
+import 'package:flutterstudy/pages/category/EasyRefresh.dart';
 import 'package:flutterstudy/pages/category/Form.dart';
 import 'package:flutterstudy/pages/category/Network.dart';
 import 'package:flutterstudy/pages/category/Product.dart';
 import 'package:flutterstudy/pages/category/ProductDetail.dart';
 import 'package:flutterstudy/pages/category/Radio.dart';
+import 'package:flutterstudy/pages/category/Refresh.dart';
 import 'package:flutterstudy/pages/category/RouteError.dart';
 import 'package:flutterstudy/pages/category/Swiper.dart';
 import 'package:flutterstudy/pages/category/TextField.dart';
+import 'package:flutterstudy/pages/category/WebView.dart';
 import 'package:flutterstudy/pages/home/AspectRatio.dart';
 import 'package:flutterstudy/pages/home/Card.dart';
 import 'package:flutterstudy/pages/home/Column.dart';
@@ -30,6 +33,8 @@ import 'package:flutterstudy/pages/home/Row.dart';
 import 'package:flutterstudy/pages/home/Stack.dart';
 import 'package:flutterstudy/pages/home/Text.dart';
 import 'package:flutterstudy/pages/home/Wrap.dart';
+import 'package:flutterstudy/pages/setting/DeviceInfo.dart';
+import 'package:flutterstudy/pages/setting/Location.dart';
 import 'package:flutterstudy/pages/tabs/Tabs.dart';
 
 final routes = {
@@ -54,7 +59,7 @@ final routes = {
   '/wrap': (context) => WrapPage(),
 
 
-  //Native
+  //Complext
   '/form': (context) => FromPage(),
   '/product': (context, {arguments}) => ProductPage(arguments: arguments),
   '/productDetail': (context) => ProductDetailPage(),
@@ -68,7 +73,14 @@ final routes = {
   '/datePicker': (context) => DatePickerDemo(),
   '/swiper': (context) => SwiperDemo(),
   '/dialog': (context) => DialogDemo(),
-  '/network': (context) => NetworkDemo()
+  '/network': (context) => NetworkDemo(),
+  '/refresh': (context) => RefreshPage(),
+  '/easyRefresh': (context) => EasyRefreshPage(),
+  '/webView': (context,{arguments}) => WebViewPage(arguments: arguments),
+
+  //Native
+  '/deviceInfo': (context) => DeviceInfoPage(),
+  '/location': (context) => LocationPage(),
 };
 
 // ignore: top_level_function_literal_block

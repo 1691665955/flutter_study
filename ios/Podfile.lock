@@ -1,29 +1,61 @@
 PODS:
+  - amap_location (0.0.1):
+    - AMapLocation
+    - Flutter
+  - AMapFoundation (1.6.4)
+  - AMapLocation (2.6.7):
+    - AMapFoundation (~> 1.6.4)
+  - device_info (0.0.1):
+    - Flutter
   - Flutter (1.0.0)
   - fluttertoast (0.0.2):
     - Flutter
     - Toast
+  - simple_permissions (0.0.1):
+    - Flutter
   - Toast (4.0.0)
+  - webview_flutter (0.0.1):
+    - Flutter
 
 DEPENDENCIES:
+  - amap_location (from `.symlinks/plugins/amap_location/ios`)
+  - device_info (from `.symlinks/plugins/device_info/ios`)
   - Flutter (from `Flutter`)
   - fluttertoast (from `.symlinks/plugins/fluttertoast/ios`)
+  - simple_permissions (from `.symlinks/plugins/simple_permissions/ios`)
+  - webview_flutter (from `.symlinks/plugins/webview_flutter/ios`)
 
 SPEC REPOS:
   trunk:
+    - AMapFoundation
+    - AMapLocation
     - Toast
 
 EXTERNAL SOURCES:
+  amap_location:
+    :path: ".symlinks/plugins/amap_location/ios"
+  device_info:
+    :path: ".symlinks/plugins/device_info/ios"
   Flutter:
     :path: Flutter
   fluttertoast:
     :path: ".symlinks/plugins/fluttertoast/ios"
+  simple_permissions:
+    :path: ".symlinks/plugins/simple_permissions/ios"
+  webview_flutter:
+    :path: ".symlinks/plugins/webview_flutter/ios"
 
 SPEC CHECKSUMS:
+  amap_location: a3e2a140bb25950d4e97560ce1b00e53a121e4f4
+  AMapFoundation: 3638198dfa40be54648570c3520edefad288286b
+  AMapLocation: a46c30d9930d0f3a3bd21139d8f845d10ac3f01d
+  device_info: d7d233b645a32c40dfdc212de5cf646ca482f175
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
   fluttertoast: 6122fa75143e992b1d3470f61000f591a798cc58
+  simple_permissions: 149cd87a11f83c24bf99f6e8a82f9fc8b70be233
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
+  webview_flutter: d2b4d6c66968ad042ad94cbb791f5b72b4678a96
 
-PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c
+PODFILE CHECKSUM: 1506cf7ef05944574c7b7b8fa334afa589040c32
 
 COCOAPODS: 1.9.1
