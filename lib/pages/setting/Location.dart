@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:amap_location_fluttify/amap_location_fluttify.dart';
 import 'package:simple_permissions/simple_permissions.dart';
-import 'dart:io';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class LocationPage extends StatefulWidget {
   @override
@@ -47,7 +47,7 @@ class _LocationPageState extends State<LocationPage> {
     if (!hasPermission) {
       PermissionStatus requestPermissionResult = await SimplePermissions.requestPermission(Permission.AccessFineLocation);
       if (requestPermissionResult != PermissionStatus.authorized) {
-        print("申请定位权限失败");
+        Fluttertoast.showToast(msg: "请打开定位权限");
         return;
       }
     }

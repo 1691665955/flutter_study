@@ -31,6 +31,10 @@
 	<string>请允许flutterstudy使用定位信息</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>请允许flutterstudy使用定位信息</string>
+	<key>NSCameraUsageDescription</key>
+    <string>请允许flutterstudy使用相机拍照</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>请允许flutterstudy使用相册</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

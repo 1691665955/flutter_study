@@ -9,7 +9,9 @@ class _SettingPageState extends State<SettingPage> {
 
   List _dataList = [
     {"name":"设备信息","router":"/deviceInfo"},
-    {"name":"定位信息","router":"/location"}
+    {"name":"定位信息","router":"/location"},
+    {"name":"拍照选择图片","router":"/imagePicker"},
+    {"name":"视频播放","router":"/video"}
   ];
 
   Widget _getListWidget(context, index) {
