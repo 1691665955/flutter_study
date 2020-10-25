@@ -36,6 +36,7 @@ import 'package:flutterstudy/pages/home/Wrap.dart';
 import 'package:flutterstudy/pages/setting/DeviceInfo.dart';
 import 'package:flutterstudy/pages/setting/ImagePicker.dart';
 import 'package:flutterstudy/pages/setting/Location.dart';
+import 'package:flutterstudy/pages/setting/NetworkDetect.dart';
 import 'package:flutterstudy/pages/setting/Video.dart';
 import 'package:flutterstudy/pages/tabs/Tabs.dart';
 
@@ -85,6 +86,7 @@ final routes = {
   '/location': (context) => LocationPage(),
   '/imagePicker': (context) => ImagePickerPage(),
   '/video': (context) => VideoPage(),
+  '/networkDetect': (context) => NetworkDetectPage(),
 };
 
 // ignore: top_level_function_literal_block

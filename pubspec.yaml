@@ -59,6 +59,8 @@ dependencies:
   #视频播放
   video_player: ^0.10.12+5
   chewie: ^0.9.10
+  #网络检测
+  connectivity: ^2.0.0
 
 dev_dependencies:
   flutter_test:

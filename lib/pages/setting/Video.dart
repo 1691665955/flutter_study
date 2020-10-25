@@ -23,9 +23,9 @@ class _VideoPageState extends State<VideoPage> {
 
     _chewieController = ChewieController(
         videoPlayerController: _videoPlayerController,
-        aspectRatio: 4 / 3,
+        aspectRatio: 16 / 7,
         autoPlay: true,
-        looping: true
+        looping: false
     );
 
   }
@@ -48,10 +48,8 @@ class _VideoPageState extends State<VideoPage> {
           style: TextStyle(color: Colors.white),
         ),
       ),
-      body: Center(
-        child: Chewie(
-          controller: _chewieController,
-        ),
+      body: Chewie(
+        controller: _chewieController,
       ),
     );
   }
