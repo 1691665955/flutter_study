@@ -76,8 +76,7 @@ dependencies:
   #打开外部链接
   url_launcher: ^5.7.8
   #支付宝支付
-  #sy_flutter_alipay: ^0.2.1
-  flutter_alipay: ^1.0.0
+  sy_flutter_alipay: ^0.2.1
 
 dev_dependencies:
   flutter_test:

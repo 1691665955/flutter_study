@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter_alipay/flutter_alipay.dart';
+import 'package:sy_flutter_alipay/sy_flutter_alipay.dart';
 import 'package:simple_permissions/simple_permissions.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'dart:io';
 
 class AlipayPage extends StatefulWidget {
   @override
@@ -16,8 +17,8 @@ class _AlipayPageState extends State<AlipayPage> {
     var serverData = await Dio().get(serverApi);
     var payInfo = serverData.data;
     print(payInfo);
-    FlutterAlipay.setIosUrlSchema("flutterstudyalipay888");
-    var result = await FlutterAlipay.pay(payInfo);
+
+    var result = await SyFlutterAlipay.pay(payInfo, urlScheme: "flutterstudyalipay888");
     print(result);
   }
 
@@ -47,7 +48,11 @@ class _AlipayPageState extends State<AlipayPage> {
         child: RaisedButton(
           child: Text("支付宝支付", style: TextStyle(fontSize: 24),),
           onPressed: () {
-            _checkPermission();
+            if (Platform.isAndroid) {
+              _checkPermission();
+            } else {
+              _doAlipay();
+            }
           },
         ),
       ),

@@ -12,9 +12,6 @@ PODS:
   - device_info (0.0.1):
     - Flutter
   - Flutter (1.0.0)
-  - flutter_alipay (0.0.1):
-    - AlipaySDK-iOS
-    - Flutter
   - flutter_downloader (0.0.1):
     - Flutter
   - fluttertoast (0.0.2):
@@ -40,6 +37,9 @@ PODS:
     - Flutter
   - simple_permissions (0.0.1):
     - Flutter
+  - sy_flutter_alipay (0.0.1):
+    - AlipaySDK-iOS
+    - Flutter
   - Toast (4.0.0)
   - TOCropViewController (2.5.5)
   - url_launcher (0.0.1):
@@ -56,7 +56,6 @@ DEPENDENCIES:
   - connectivity (from `.symlinks/plugins/connectivity/ios`)
   - device_info (from `.symlinks/plugins/device_info/ios`)
   - Flutter (from `Flutter`)
-  - flutter_alipay (from `.symlinks/plugins/flutter_alipay/ios`)
   - flutter_downloader (from `.symlinks/plugins/flutter_downloader/ios`)
   - fluttertoast (from `.symlinks/plugins/fluttertoast/ios`)
   - image_cropper (from `.symlinks/plugins/image_cropper/ios`)
@@ -67,6 +66,7 @@ DEPENDENCIES:
   - qr_code_scanner (from `.symlinks/plugins/qr_code_scanner/ios`)
   - shared_preferences (from `.symlinks/plugins/shared_preferences/ios`)
   - simple_permissions (from `.symlinks/plugins/simple_permissions/ios`)
+  - sy_flutter_alipay (from `.symlinks/plugins/sy_flutter_alipay/ios`)
   - url_launcher (from `.symlinks/plugins/url_launcher/ios`)
   - video_player (from `.symlinks/plugins/video_player/ios`)
   - wakelock (from `.symlinks/plugins/wakelock/ios`)
@@ -91,8 +91,6 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/device_info/ios"
   Flutter:
     :path: Flutter
-  flutter_alipay:
-    :path: ".symlinks/plugins/flutter_alipay/ios"
   flutter_downloader:
     :path: ".symlinks/plugins/flutter_downloader/ios"
   fluttertoast:
@@ -113,6 +111,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/shared_preferences/ios"
   simple_permissions:
     :path: ".symlinks/plugins/simple_permissions/ios"
+  sy_flutter_alipay:
+    :path: ".symlinks/plugins/sy_flutter_alipay/ios"
   url_launcher:
     :path: ".symlinks/plugins/url_launcher/ios"
   video_player:
@@ -130,7 +130,6 @@ SPEC CHECKSUMS:
   connectivity: c4130b2985d4ef6fd26f9702e886bd5260681467
   device_info: d7d233b645a32c40dfdc212de5cf646ca482f175
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
-  flutter_alipay: feedc0200a70b37c2f230b9fc33674f32e272327
   flutter_downloader: 058b9c41564a90500f67f3e432e3524613a7fd83
   fluttertoast: 6122fa75143e992b1d3470f61000f591a798cc58
   image_cropper: c8f9b4157933c7bb965a66d1c5e6c8fd408c6eb4
@@ -143,6 +142,7 @@ SPEC CHECKSUMS:
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   shared_preferences: af6bfa751691cdc24be3045c43ec037377ada40d
   simple_permissions: 149cd87a11f83c24bf99f6e8a82f9fc8b70be233
+  sy_flutter_alipay: 9dcdf3387b9afe848733b9e9081559f0c731dfff
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   TOCropViewController: da59f531f8ac8a94ef6d6c0fc34009350f9e8bfe
   url_launcher: 6fef411d543ceb26efce54b05a0a40bfd74cbbef
@@ -150,6 +150,6 @@ SPEC CHECKSUMS:
   wakelock: 0d4a70faf8950410735e3f61fb15d517c8a6efc4
   webview_flutter: d2b4d6c66968ad042ad94cbb791f5b72b4678a96
 
-PODFILE CHECKSUM: 07d94ec9375d23ab266d8490900b8ca50b0ade7f
+PODFILE CHECKSUM: c00b8ae490ab848c5fdee11292aa588485699268
 
 COCOAPODS: 1.9.1
