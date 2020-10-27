@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:simple_permissions/simple_permissions.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class SettingPage extends StatefulWidget {
   @override
@@ -12,8 +14,25 @@ class _SettingPageState extends State<SettingPage> {
     {"name":"定位信息","router":"/location"},
     {"name":"拍照选择图片","router":"/imagePicker"},
     {"name":"视频播放","router":"/video"},
-    {"name":"网络监测","router":"/networkDetect"}
+    {"name":"网络监测","router":"/networkDetect"},
+    {"name":"本地存储","router":"/storage"},
+    {"name":"二维码扫描","router":"/barcodeScan"},
+    {"name":"版本检测和升级","router":"/version"},
+    {"name":"打开外部链接","router":"/launcher"},
+    {"name":"微信支付","router":"/alipay"}
   ];
+
+  Future<void> _navigatorToBarcodeScan(String router) async {
+    bool hasPermission = await SimplePermissions.checkPermission(Permission.Camera);
+    if (!hasPermission) {
+      PermissionStatus requestPermissionResult = await SimplePermissions.requestPermission(Permission.Camera);
+      if (requestPermissionResult != PermissionStatus.authorized) {
+        Fluttertoast.showToast(msg: "请打开相机权限");
+        return;
+      }
+    }
+    Navigator.pushNamed(context, router);
+  }
 
   Widget _getListWidget(context, index) {
     return Column(
@@ -26,7 +45,11 @@ class _SettingPageState extends State<SettingPage> {
               Icons.keyboard_arrow_right
           ),
           onTap: () {
-            Navigator.pushNamed(context, _dataList[index]["router"]);
+            if (_dataList[index]["router"] == "/barcodeScan") {
+              _navigatorToBarcodeScan(_dataList[index]["router"]);
+            } else {
+              Navigator.pushNamed(context, _dataList[index]["router"]);
+            }
           },
         ),
         Divider(

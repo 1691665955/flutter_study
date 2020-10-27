@@ -33,10 +33,15 @@ import 'package:flutterstudy/pages/home/Row.dart';
 import 'package:flutterstudy/pages/home/Stack.dart';
 import 'package:flutterstudy/pages/home/Text.dart';
 import 'package:flutterstudy/pages/home/Wrap.dart';
+import 'package:flutterstudy/pages/setting/Alipay.dart';
+import 'package:flutterstudy/pages/setting/BarcodeScan.dart';
 import 'package:flutterstudy/pages/setting/DeviceInfo.dart';
 import 'package:flutterstudy/pages/setting/ImagePicker.dart';
+import 'package:flutterstudy/pages/setting/Launcher.dart';
 import 'package:flutterstudy/pages/setting/Location.dart';
 import 'package:flutterstudy/pages/setting/NetworkDetect.dart';
+import 'package:flutterstudy/pages/setting/StorageDemo.dart';
+import 'package:flutterstudy/pages/setting/Version.dart';
 import 'package:flutterstudy/pages/setting/Video.dart';
 import 'package:flutterstudy/pages/tabs/Tabs.dart';
 
@@ -87,6 +92,11 @@ final routes = {
   '/imagePicker': (context) => ImagePickerPage(),
   '/video': (context) => VideoPage(),
   '/networkDetect': (context) => NetworkDetectPage(),
+  '/storage': (context) => StorageDemoPage(),
+  '/barcodeScan': (context) => BarcodeScanPage(),
+  '/version': (context) => VersionPage(),
+  '/launcher': (context) => LauncherPage(),
+  '/alipay': (context) => AlipayPage(),
 };
 
 // ignore: top_level_function_literal_block
