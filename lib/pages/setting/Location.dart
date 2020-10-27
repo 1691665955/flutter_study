@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:amap_location_fluttify/amap_location_fluttify.dart';
+import 'package:amap_location/amap_location.dart';
 import 'package:simple_permissions/simple_permissions.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -22,6 +22,8 @@ class _LocationPageState extends State<LocationPage> {
   }
 
   void _getLocation() async {
+    await AMapLocationClient.startup(new AMapLocationOption( desiredAccuracy:CLLocationAccuracy.kCLLocationAccuracyBest));
+
     //获取地理位置
 //    var result = await AmapLocation.instance.fetchLocation(mode: LocationAccuracy.High);
 //    print(result);
@@ -32,14 +34,16 @@ class _LocationPageState extends State<LocationPage> {
 //    });
 
     //监听定位
-    AmapLocation.instance.listenLocation().listen((result) {
-      print(result);
-      setState(() {
-        this._longitude = result.latLng.longitude;
-        this._latitude = result.latLng.latitude;
-        this._address = result.address;
-      });
+    AMapLocationClient.onLocationUpate.listen((AMapLocation location) {
+      if (mounted) {
+        setState(() {
+          this._longitude = location.longitude;
+          this._latitude = location.latitude;
+        this._address = location.formattedAddress;
+        });
+      }
     });
+    AMapLocationClient.startLocation();
   }
   
   void checkPermission() async {
@@ -57,7 +61,8 @@ class _LocationPageState extends State<LocationPage> {
   @override
   void dispose() {
     // TODO: implement dispose
-    AmapLocation.instance.stopLocation();
+    AMapLocationClient.stopLocation();
+    AMapLocationClient.shutdown();
     super.dispose();
   }
 

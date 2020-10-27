@@ -16,6 +16,7 @@ class _AlipayPageState extends State<AlipayPage> {
     var serverData = await Dio().get(serverApi);
     var payInfo = serverData.data;
     print(payInfo);
+    FlutterAlipay.setIosUrlSchema("flutterstudyalipay888");
     var result = await FlutterAlipay.pay(payInfo);
     print(result);
   }
