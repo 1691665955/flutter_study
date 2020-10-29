@@ -19,7 +19,7 @@ class _SettingPageState extends State<SettingPage> {
     {"name":"二维码扫描","router":"/barcodeScan"},
     {"name":"版本检测和升级","router":"/version"},
     {"name":"打开外部链接","router":"/launcher"},
-    {"name":"微信支付","router":"/alipay"}
+    {"name":"支付宝支付","router":"/alipay"}
   ];
 
   Future<void> _navigatorToBarcodeScan(String router) async {

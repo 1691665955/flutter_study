@@ -40,7 +40,7 @@ class _AlipayPageState extends State<AlipayPage> {
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.white),
         title: Text(
-          "微信支付",
+          "支付宝支付",
           style: TextStyle(color: Colors.white),
         ),
       ),

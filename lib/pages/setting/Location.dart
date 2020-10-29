@@ -9,7 +9,6 @@ class LocationPage extends StatefulWidget {
 }
 
 class _LocationPageState extends State<LocationPage> {
-
   var _longitude;
   var _latitude;
   var _address;
@@ -22,34 +21,38 @@ class _LocationPageState extends State<LocationPage> {
   }
 
   void _getLocation() async {
-    await AMapLocationClient.startup(new AMapLocationOption( desiredAccuracy:CLLocationAccuracy.kCLLocationAccuracyBest));
+    await AMapLocationClient.startup(new AMapLocationOption(
+        desiredAccuracy: CLLocationAccuracy.kCLLocationAccuracyBest));
 
     //获取地理位置
-//    var result = await AmapLocation.instance.fetchLocation(mode: LocationAccuracy.High);
-//    print(result);
-//    setState(() {
-//      this._longitude = result.latLng.longitude;
-//      this._latitude = result.latLng.latitude;
-//      this._address = result.address;
-//    });
+    var result = await AMapLocationClient.getLocation(true);
+    print(result);
+    setState(() {
+      this._longitude = result.longitude;
+      this._latitude = result.latitude;
+      this._address = result.formattedAddress;
+    });
 
     //监听定位
-    AMapLocationClient.onLocationUpate.listen((AMapLocation location) {
-      if (mounted) {
-        setState(() {
-          this._longitude = location.longitude;
-          this._latitude = location.latitude;
-        this._address = location.formattedAddress;
-        });
-      }
-    });
-    AMapLocationClient.startLocation();
+//    AMapLocationClient.onLocationUpate.listen((AMapLocation location) {
+//      if (mounted) {
+//        setState(() {
+//          this._longitude = location.longitude;
+//          this._latitude = location.latitude;
+//          this._address = location.formattedAddress;
+//        });
+//      }
+//    });
+//    AMapLocationClient.startLocation();
   }
-  
+
   void checkPermission() async {
-    bool hasPermission = await SimplePermissions.checkPermission(Permission.AccessFineLocation);
+    bool hasPermission =
+        await SimplePermissions.checkPermission(Permission.AccessFineLocation);
     if (!hasPermission) {
-      PermissionStatus requestPermissionResult = await SimplePermissions.requestPermission(Permission.AccessFineLocation);
+      PermissionStatus requestPermissionResult =
+          await SimplePermissions.requestPermission(
+              Permission.AccessFineLocation);
       if (requestPermissionResult != PermissionStatus.authorized) {
         Fluttertoast.showToast(msg: "请打开定位权限");
         return;
@@ -77,8 +80,7 @@ class _LocationPageState extends State<LocationPage> {
         ),
       ),
       body: Text(
-          "经度：${this._longitude==null?"":this._longitude}\n纬度：${this._latitude==null?"":this._latitude}\n地址：${this._address==null?"":this._address}"
-      ),
+          "经度：${this._longitude == null ? "" : this._longitude}\n纬度：${this._latitude == null ? "" : this._latitude}\n地址：${this._address == null ? "" : this._address}"),
     );
   }
 }
