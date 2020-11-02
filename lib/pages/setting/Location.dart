@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:amap_location/amap_location.dart';
+import 'package:amap_location_flutter_plugin/amap_location_flutter_plugin.dart';
+import 'package:amap_location_flutter_plugin/amap_location_option.dart';
 import 'package:simple_permissions/simple_permissions.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -13,6 +16,9 @@ class _LocationPageState extends State<LocationPage> {
   var _latitude;
   var _address;
 
+  var _locationPlugin = AmapLocationFlutterPlugin();
+  StreamSubscription<Map<String, Object>> _locationListener;
+
   @override
   void initState() {
     // TODO: implement initState
@@ -21,29 +27,26 @@ class _LocationPageState extends State<LocationPage> {
   }
 
   void _getLocation() async {
-    await AMapLocationClient.startup(new AMapLocationOption(
-        desiredAccuracy: CLLocationAccuracy.kCLLocationAccuracyBest));
-
-    //获取地理位置
-    var result = await AMapLocationClient.getLocation(true);
-    print(result);
-    setState(() {
-      this._longitude = result.longitude;
-      this._latitude = result.latitude;
-      this._address = result.formattedAddress;
+    AmapLocationFlutterPlugin.setApiKey("c07e6ff64e8b07b96a93a8a3f35d30e5", "f83e0282a2cdab49ec543129c4b5ff00");
+    _locationListener = _locationPlugin.onLocationChanged().listen((location) {
+      setState(() {
+        this._longitude = location["longitude"];
+        this._latitude = location["latitude"];
+        this._address = location["address"];
+      });
     });
 
-    //监听定位
-//    AMapLocationClient.onLocationUpate.listen((AMapLocation location) {
-//      if (mounted) {
-//        setState(() {
-//          this._longitude = location.longitude;
-//          this._latitude = location.latitude;
-//          this._address = location.formattedAddress;
-//        });
-//      }
-//    });
-//    AMapLocationClient.startLocation();
+    AMapLocationOption locationOption = AMapLocationOption();
+    locationOption.onceLocation = false;
+    locationOption.needAddress = true;
+    locationOption.geoLanguage = GeoLanguage.DEFAULT;
+    locationOption.desiredLocationAccuracyAuthorizationMode = AMapLocationAccuracyAuthorizationMode.ReduceAccuracy;
+    locationOption.locationInterval = 2000;
+    locationOption.locationMode = AMapLocationMode.Hight_Accuracy;
+    locationOption.distanceFilter = -1;
+    locationOption.desiredAccuracy = DesiredAccuracy.Best;
+    _locationPlugin.setLocationOption(locationOption);
+    _locationPlugin.startLocation();
   }
 
   void checkPermission() async {
@@ -64,8 +67,13 @@ class _LocationPageState extends State<LocationPage> {
   @override
   void dispose() {
     // TODO: implement dispose
-    AMapLocationClient.stopLocation();
-    AMapLocationClient.shutdown();
+    if (_locationListener != null) {
+      _locationListener.cancel();
+    }
+    if (_locationPlugin != null) {
+      _locationPlugin.stopLocation();
+      _locationPlugin.destroy();
+    }
     super.dispose();
   }
 

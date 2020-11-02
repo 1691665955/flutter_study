@@ -1,7 +1,7 @@
 PODS:
   - AlipaySDK-iOS (15.7.9)
-  - amap_location (0.0.1):
-    - AMapLocation
+  - amap_location_flutter_plugin (0.0.1):
+    - AMapLocation (~> 2.6.7)
     - Flutter
   - AMapFoundation (1.6.4)
   - AMapLocation (2.6.7):
@@ -52,7 +52,7 @@ PODS:
     - Flutter
 
 DEPENDENCIES:
-  - amap_location (from `.symlinks/plugins/amap_location/ios`)
+  - amap_location_flutter_plugin (from `.symlinks/plugins/amap_location_flutter_plugin/ios`)
   - connectivity (from `.symlinks/plugins/connectivity/ios`)
   - device_info (from `.symlinks/plugins/device_info/ios`)
   - Flutter (from `Flutter`)
@@ -83,8 +83,8 @@ SPEC REPOS:
     - TOCropViewController
 
 EXTERNAL SOURCES:
-  amap_location:
-    :path: ".symlinks/plugins/amap_location/ios"
+  amap_location_flutter_plugin:
+    :path: ".symlinks/plugins/amap_location_flutter_plugin/ios"
   connectivity:
     :path: ".symlinks/plugins/connectivity/ios"
   device_info:
@@ -124,7 +124,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AlipaySDK-iOS: 94ff4c0e17c5e7d126b8207596d5033006534c25
-  amap_location: a3e2a140bb25950d4e97560ce1b00e53a121e4f4
+  amap_location_flutter_plugin: ff1a0775aebbf718cade7e0b2383ea6eb99f8432
   AMapFoundation: 3638198dfa40be54648570c3520edefad288286b
   AMapLocation: a46c30d9930d0f3a3bd21139d8f845d10ac3f01d
   connectivity: c4130b2985d4ef6fd26f9702e886bd5260681467

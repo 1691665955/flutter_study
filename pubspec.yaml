@@ -49,7 +49,7 @@ dependencies:
   #设备信息
   device_info: ^0.4.2+9
   #高德地图定位
-  amap_location: ^0.2.0
+  amap_location_flutter_plugin: ^0.1.4
   #权限管理
   simple_permissions: ^0.1.9
   #拍照图片选择

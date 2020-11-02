@@ -82,6 +82,8 @@
             android:name="flutterEmbedding"
             android:value="2" />
 
+        <meta-data android:name="com.amap.api.v2.apikey" android:value="c07e6ff64e8b07b96a93a8a3f35d30e5"/>
+
         //Alipay取消支付后报错（Failed resolution of: Landroid/webkit/TracingController）
         <meta-data android:name="android.webkit.WebView.EnableSafeBrowsing"  android:value="false"/>
     </application>
