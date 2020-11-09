@@ -23,16 +23,44 @@ class _LauncherPageState extends State<LauncherPage> {
           child: ListView(
             children: [
               RaisedButton(
-                child: Text("打开外部浏览器"),
+                  child: Text("打开外部浏览器"),
                   onPressed: () async {
-                const url = "https://www.baidu.com";
-                if (await canLaunch(url)) {
-                  await launch(url);
-                } else {
-                  throw 'Count not launch $url';
-                }
-              }),
-              SizedBox(height: 10,),
+                    const url = "https://www.baidu.com";
+                    if (await canLaunch(url)) {
+                      await launch(url);
+                    } else {
+                      throw 'Count not launch $url';
+                    }
+                  }),
+              SizedBox(
+                height: 10,
+              ),
+              RaisedButton(
+                  child: Text("打开微信"),
+                  onPressed: () async {
+                    const url = "weixin://";
+                    if (await canLaunch(url)) {
+                      await launch(url);
+                    } else {
+                      throw 'Count not launch $url';
+                    }
+                  }),
+              SizedBox(
+                height: 10,
+              ),
+              RaisedButton(
+                  child: Text("打开拼多多"),
+                  onPressed: () async {
+                    const url = "pinduoduo://";
+                    if (await canLaunch(url)) {
+                      await launch(url);
+                    } else {
+                      throw 'Count not launch $url';
+                    }
+                  }),
+              SizedBox(
+                height: 10,
+              ),
               RaisedButton(
                   child: Text("拨打电话"),
                   onPressed: () async {
@@ -43,7 +71,9 @@ class _LauncherPageState extends State<LauncherPage> {
                       throw 'Count not launch $tel';
                     }
                   }),
-              SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               RaisedButton(
                   child: Text("发送短信"),
                   onPressed: () async {
@@ -54,7 +84,9 @@ class _LauncherPageState extends State<LauncherPage> {
                       throw 'Count not launch $sms';
                     }
                   }),
-              SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               RaisedButton(
                   child: Text("打开外部应用"),
                   onPressed: () async {
@@ -66,7 +98,9 @@ class _LauncherPageState extends State<LauncherPage> {
                       throw 'Count not launch $wechat';
                     }
                   }),
-              SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
             ],
           ),
         ),
