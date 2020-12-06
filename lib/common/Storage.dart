@@ -63,10 +63,8 @@ class Storage {
   }
 
   static Future<void> removeAll() async {
-    List<String> keys = await getKeys();
-    for (var key in keys) {
-      remove(key);
-    }
+    SharedPreferences sp = await SharedPreferences.getInstance();
+    sp.clear();
   }
 
 }

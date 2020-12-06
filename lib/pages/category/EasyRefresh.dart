@@ -17,7 +17,7 @@ class _EasyRefreshPageState extends State<EasyRefreshPage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    this._getData();
+    // this._getData();
   }
 
   void _getData() async {
@@ -64,6 +64,15 @@ class _EasyRefreshPageState extends State<EasyRefreshPage> {
               noMoreText: "没有更多数据",
               infoText: "更新于 %T"
           ):null,
+          firstRefresh: true,
+          firstRefreshWidget: Container(
+            width: double.infinity,
+            height: double.infinity,
+            color: Color.fromRGBO(51, 51, 51, 0.5),
+             child: Center(
+               child: Text("加载中..."),
+             ),
+          ),
           onRefresh: () async {
             this._page = 1;
             this._getData();

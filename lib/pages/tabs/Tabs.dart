@@ -58,10 +58,10 @@ class _TabsState extends State<Tabs> {
           BottomNavigationBarItem(
               icon: Icon(Icons.category), title: Text("Complext")),
           BottomNavigationBarItem(
-              icon: Icon(Icons.category), title: Text("Navtive")),
+              icon: Icon(Icons.category), title: Text("Add")),
           BottomNavigationBarItem(
               icon: Icon(Icons.settings), title: Text("Navtive")),
-          BottomNavigationBarItem(icon: Icon(Icons.person), title: Text("我的"))
+          BottomNavigationBarItem(icon: Icon(Icons.person), title: Text("Sliver"))
         ],
         iconSize: 25.0,//icon大小
 //        fixedColor: Colors.cyan,

@@ -33,7 +33,12 @@ import 'package:flutterstudy/pages/home/Row.dart';
 import 'package:flutterstudy/pages/home/Stack.dart';
 import 'package:flutterstudy/pages/home/Text.dart';
 import 'package:flutterstudy/pages/home/Wrap.dart';
+import 'package:flutterstudy/pages/person/SliverAppBarDemo.dart';
+import 'package:flutterstudy/pages/person/SliverListDemo.dart';
+import 'package:flutterstudy/pages/person/SliverShrinkDemo.dart';
+import 'package:flutterstudy/pages/person/SliverStickyDemo.dart';
 import 'package:flutterstudy/pages/setting/Alipay.dart';
+import 'package:flutterstudy/pages/setting/Auth.dart';
 import 'package:flutterstudy/pages/setting/BarcodeScan.dart';
 import 'package:flutterstudy/pages/setting/DeviceInfo.dart';
 import 'package:flutterstudy/pages/setting/ImagePicker.dart';
@@ -97,6 +102,13 @@ final routes = {
   '/version': (context) => VersionPage(),
   '/launcher': (context) => LauncherPage(),
   '/alipay': (context) => AlipayPage(),
+  '/auth': (context) => AuthPage(),
+
+  //Sliver
+  '/sliverList': (context) => SliverListPage(),
+  '/sliverAppBar': (context) => SliverAppBarPage(),
+  '/sliverSticky': (context) => SliverStickyPage(),
+  '/sliverShrink': (context) => SliverShrinkPage(),
 };
 
 // ignore: top_level_function_literal_block

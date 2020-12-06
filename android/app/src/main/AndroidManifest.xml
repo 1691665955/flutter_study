@@ -16,7 +16,7 @@
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
-            android:theme="@style/LaunchTheme"
+            android:theme="@style/Theme.AppCompat"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize">
@@ -102,4 +102,6 @@
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
     //允许读取本机号码权限
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    //允许指纹验证
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
 </manifest>
