@@ -8,6 +8,7 @@ class SliverShrinkPage extends StatefulWidget {
 
 class _SliverShrinkPageState extends State<SliverShrinkPage> with TickerProviderStateMixin {
 
+  ScrollController _scrollController;
   double _extraImageHeight = 0;
   AnimationController _animationController;
   Animation<double> _animation;
@@ -19,6 +20,7 @@ class _SliverShrinkPageState extends State<SliverShrinkPage> with TickerProvider
     super.initState();
     _animationController = AnimationController(vsync: this, duration: Duration(milliseconds: 300));
     _animation = Tween(begin: 0.0, end: 0.0).animate(_animationController);
+    _scrollController = ScrollController();
   }
 
   void updateImageHeight(double dy) {
@@ -27,10 +29,10 @@ class _SliverShrinkPageState extends State<SliverShrinkPage> with TickerProvider
     }
     double height = dy - _preY;
     setState(() {
-      _preY = dy;
       if (_extraImageHeight + height < 0) {
         _extraImageHeight = 0;
       } else {
+        _preY = dy;
         //下拉阻尼效果
         double rate = 1 - _extraImageHeight/200;
         if (rate < 0) {
@@ -62,10 +64,14 @@ class _SliverShrinkPageState extends State<SliverShrinkPage> with TickerProvider
           updateImageHeight(result.position.dy);
         },
         onPointerUp: (_) {
-          resetAnimation();
+          //优化页面滚动到最下面后开始下拉出现回弹的问题
+          if (_scrollController.offset <= 40) {
+            resetAnimation();
+          }
         },
         child: CustomScrollView(
           physics: ClampingScrollPhysics(),
+          controller: _scrollController,
           slivers: [
             SliverPersistentHeader(
               pinned: true,
