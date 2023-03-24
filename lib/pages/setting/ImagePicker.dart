@@ -90,7 +90,7 @@ class _ImagePickerPageState extends State<ImagePickerPage> {
   }
 
   Future _getPhoto(ImageSource source) async {
-    var image = await ImagePicker().getImage(source: source, maxWidth: 512);
+    var image = await ImagePicker.pickImage(source: source, maxWidth: 512);
     File croppedFile = await ImageCropper.cropImage(sourcePath: image.path,aspectRatio: CropAspectRatio(ratioX: 1.0, ratioY: 1.0,), maxWidth: 512, maxHeight: 512);
 
     setState(() {

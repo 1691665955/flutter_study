@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterstudy/pages/AppBar/AppBarDemo.dart';
 import 'package:flutterstudy/pages/AppBar/AppBarDemo1.dart';
 import 'package:flutterstudy/pages/AppBar/AppBarDemo2.dart';
+import 'package:flutterstudy/pages/category/Animation.dart';
 import 'package:flutterstudy/pages/category/Button.dart';
 import 'package:flutterstudy/pages/category/CheckBox.dart';
 import 'package:flutterstudy/pages/category/DatePicker.dart';
@@ -17,6 +18,10 @@ import 'package:flutterstudy/pages/category/RouteError.dart';
 import 'package:flutterstudy/pages/category/Swiper.dart';
 import 'package:flutterstudy/pages/category/TextField.dart';
 import 'package:flutterstudy/pages/category/WebView.dart';
+import 'package:flutterstudy/pages/category/mz_animation_route_test.dart';
+import 'package:flutterstudy/pages/category/mz_collection_view_test.dart';
+import 'package:flutterstudy/pages/category/mz_refresh_state_test.dart';
+import 'package:flutterstudy/pages/category/mz_table_view_test.dart';
 import 'package:flutterstudy/pages/home/AspectRatio.dart';
 import 'package:flutterstudy/pages/home/Card.dart';
 import 'package:flutterstudy/pages/home/Column.dart';
@@ -71,7 +76,6 @@ final routes = {
   '/card': (context) => CardPage(),
   '/wrap': (context) => WrapPage(),
 
-
   //Complext
   '/form': (context) => FromPage(),
   '/product': (context, {arguments}) => ProductPage(arguments: arguments),
@@ -89,7 +93,12 @@ final routes = {
   '/network': (context) => NetworkDemo(),
   '/refresh': (context) => RefreshPage(),
   '/easyRefresh': (context) => EasyRefreshPage(),
-  '/webView': (context,{arguments}) => WebViewPage(arguments: arguments),
+  '/webView': (context, {arguments}) => WebViewPage(arguments: arguments),
+  '/mzRefresh': (context) => MZRefreshStateTestPage(),
+  '/mzTableView': (context) => MZTableViewPage(),
+  '/mzCollectionView': (context) => MZCollectionViewPage(),
+  '/mzAnimationRoute': (context) => MZAnimationRouteTestPage(),
+  '/animation': (context) => AnimationPage(),
 
   //Native
   '/deviceInfo': (context) => DeviceInfoPage(),
@@ -120,7 +129,8 @@ var onGenerateRoute = (RouteSettings settings) {
     if (settings.arguments != null) {
       final Route route = MaterialPageRoute(
           settings: RouteSettings(name: name),
-          builder: (context) => pageContentBuilder(context, arguments: settings.arguments));
+          builder: (context) =>
+              pageContentBuilder(context, arguments: settings.arguments));
       return route;
     } else {
       final Route route = MaterialPageRoute(

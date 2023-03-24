@@ -23,6 +23,12 @@ class _SliverShrinkPageState extends State<SliverShrinkPage> with TickerProvider
     _scrollController = ScrollController();
   }
 
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
   void updateImageHeight(double dy) {
     if (_preY == 0) {
       _preY = dy;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:date_format/date_format.dart';
-import 'package:flutter_cupertino_date_picker/flutter_cupertino_date_picker.dart';
+import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 
 class DatePickerDemo extends StatefulWidget {
   @override
@@ -12,11 +12,6 @@ class _DatePickerDemoState extends State<DatePickerDemo> {
   var time = TimeOfDay(hour: 10, minute: 30);
 
   var thirdNow = DateTime.now();
-//  _showDatePicker() {
-//    showDatePicker(context: context, initialDate: DateTime.now(), firstDate: DateTime(1980), lastDate: DateTime(2100)).then((value){
-//      print(value);
-//    });
-//  }
 
   _showDatePicker() async {
     var result = await showDatePicker(context: context, initialDate: now, firstDate: DateTime(1980), lastDate: DateTime(2100));
@@ -37,43 +32,16 @@ class _DatePickerDemoState extends State<DatePickerDemo> {
   }
 
   _showThirdDatePicker() async {
-//    var result = await showDatePicker(context: context, initialDate: now, firstDate: DateTime(1980), lastDate: DateTime(2100));
-//    setState(() {
-//      if (result != null) {
-//        now = result;
-//      }
-//    });
-    DatePicker.showDatePicker(
-        context,
-      pickerTheme: DateTimePickerTheme(
-        showTitle: true,
-        confirm: Text(
-          "确定",
-          style: TextStyle(
-            color: Theme.of(context).accentColor
-          ),
-        ),
-        cancel: Text(
-          "取消",
-          style: TextStyle(
-            color: Colors.grey
-          ),
-        ),
-      ),
-      minDateTime: DateTime.parse("1980-05-12"),
-      maxDateTime: DateTime.parse("2100-05-12"),
-      initialDateTime: thirdNow,
-//      dateFormat: "yyyy-MMMM-dd",
-      dateFormat: "yyyy-MMMM-dd HH:mm",
-      pickerMode: DateTimePickerMode.datetime,
-      locale: DateTimePickerLocale.zh_cn,
-      onCancel: () {
-          debugPrint("onCancel");
-      },
-      onConfirm: (dateTime, List<int> index) {
-          setState(() {
-            thirdNow = dateTime;
-          });
+    DatePicker.showDatePicker(context,
+      showTitleActions: true,
+      minTime: DateTime(1980),
+      maxTime: DateTime(2100),
+      currentTime: now,
+      locale: LocaleType.zh,
+      onConfirm: (date) {
+        setState(() {
+          thirdNow = date;
+        });
       }
     );
   }
